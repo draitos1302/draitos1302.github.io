@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altora Digital Marketing | Elevando tu Alcance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom Styles and Variables */
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --text-main: #f0f0f0;
+            --text-muted: #a0a0a0;
+            /* Gold Gradient for text and borders */
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #aa771c 50%, #f3e5ab 100%);
+            --gold-solid: #d4af37;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .brand-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Gold Text Utility */
+        .text-gold {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent; /* Fallback */
+            display: inline-block; /* Required for gradient text */
+        }
+
+        /* Gold Border Utility */
+        .border-gold {
+            border-color: var(--gold-solid);
+            border-width: 1px;
+        }
+
+        /* Gradient Border Container */
+        .gradient-border-wrap {
+            padding: 1px;
+            background: var(--gold-gradient);
+            border-radius: 0.5rem;
+        }
+        .gradient-border-content {
+            background-color: var(--bg-card);
+            border-radius: calc(0.5rem - 1px);
+        }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Button */
+        .btn-gold {
+            background: var(--gold-gradient);
+            color: var(--bg-dark);
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-outline-gold {
+            border: 1px solid var(--gold-solid);
+            color: var(--gold-solid);
+            transition: background 0.3s, color 0.3s;
+        }
+        .btn-outline-gold:hover {
+            background: var(--gold-gradient);
+            color: var(--bg-dark);
+        }
+
+        /* SVG Logo Styling */
+        .logo-svg path {
+            fill: url(#goldGradient);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-yellow-600 selection:text-white">
+
+    <!-- SVG Definitions -->
+    <svg width="0" height="0" class="hidden">
+        <defs>
+            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#d4af37" />
+                <stop offset="50%" stop-color="#aa771c" />
+                <stop offset="100%" stop-color="#f3e5ab" />
+            </linearGradient>
+            <linearGradient id="goldGradientIcon" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#d4af37" />
+                <stop offset="100%" stop-color="#aa771c" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <!-- Mockup SVG based on user's image -->
+                    <svg class="h-10 w-auto logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- 'A' Base -->
+                        <path d="M50 10 L20 80 H35 L45 55 L55 55 L65 80 H80 L50 10Z" fill="url(#goldGradient)"/>
+                        <!-- Inner details simulating the steps/arrow -->
+                        <path d="M40 80 H25 L45 30 L45 80 Z" fill="#0a0a0a"/>
+                        <path d="M45 75 H35 V65 H45 V75 Z" fill="url(#goldGradient)"/>
+                        <path d="M45 60 H40 V50 H45 V60 Z" fill="url(#goldGradient)"/>
+                        <!-- Arrow pointing up -->
+                        <path d="M50 50 L85 20 L75 15 L80 30 Z" fill="url(#goldGradient)"/>
+                        <path d="M48 52 L82 22 L80 25 L48 54 Z" fill="#0a0a0a"/>
+                    </svg>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-bold tracking-widest text-gold uppercase" style="line-height: 1;">Altora</span>
+                        <span class="text-[0.6rem] tracking-[0.2em] text-gray-400 uppercase">Digital Marketing</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#servicios" class="text-sm font-medium hover:text-[#d4af37] transition-colors">Servicios</a>
+                    <a href="#nosotros" class="text-sm font-medium hover:text-[#d4af37] transition-colors">Nosotros</a>
+                    <a href="#contacto" class="btn-gold px-6 py-2 rounded-full text-sm">Contactar</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#141414] border-b border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#servicios" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-[#d4af37]">Servicios</a>
+                <a href="#nosotros" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-[#d4af37]">Nosotros</a>
+                <a href="#contacto" class="block px-3 py-2 text-base font-medium text-[#d4af37]">Contactar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden flex items-center min-h-[90vh]">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <!-- Subtle gradient background overlay -->
+            <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#111] to-[#1a1814] opacity-90"></div>
+            <!-- Decorative blur blob -->
+            <div class="absolute top-1/4 -right-20 w-96 h-96 bg-[#d4af37]/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 -left-20 w-72 h-72 bg-[#d4af37]/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in-up">
+                <span class="text-[#d4af37] font-semibold tracking-wider uppercase text-sm mb-4 block">Elevando tu alcance</span>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    Potencia tu Marca <br class="hidden md:block" /> con <span class="text-gold">Resultados que Trascienden</span>
+                </h1>
+                <p class="mt-4 text-xl text-gray-400 max-w-3xl mx-auto mb-10 font-light">
+                    Transformamos tu presencia digital mediante estrategias exclusivas, diseño de vanguardia y embudos de alta conversión.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#servicios" class="btn-gold px-8 py-4 rounded-full text-lg">Descubrir Servicios</a>
+                    <a href="#contacto" class="btn-outline-gold px-8 py-4 rounded-full text-lg bg-transparent">Agendar Consultoría</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-24 bg-[#0d0d0d] relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Nuestros <span class="text-gold">Servicios</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-[#d4af37] to-[#aa771c] mx-auto rounded"></div>
+                <p class="mt-6 text-gray-400 max-w-2xl mx-auto">Soluciones integrales de marketing digital diseñadas para posicionar tu marca como líder en su sector.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="gradient-border-wrap fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="gradient-border-content h-full p-8 flex flex-col items-center text-center group hover:bg-[#1a1a1a] transition-colors duration-300">
+                        <div class="w-16 h-16 rounded-full bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-gray-800">
+                            <i class="fas fa-pen-nib text-2xl" style="background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Creación de Contenido</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Desarrollamos contenido magnético y de alto valor que resuena con tu audiencia, fortalece tu autoridad y genera interacción real en todas las plataformas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="gradient-border-wrap fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="gradient-border-content h-full p-8 flex flex-col items-center text-center group hover:bg-[#1a1a1a] transition-colors duration-300">
+                        <div class="w-16 h-16 rounded-full bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-gray-800">
+                            <i class="fas fa-film text-2xl" style="background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Edición de Videos</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Producción y edición audiovisual profesional. Transformamos tus ideas en piezas cinematográficas dinámicas adaptadas para Reels, TikToks o formato corporativo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="gradient-border-wrap fade-in-up" style="transition-delay: 0.3s;">
+                    <div class="gradient-border-content h-full p-8 flex flex-col items-center text-center group hover:bg-[#1a1a1a] transition-colors duration-300">
+                        <div class="w-16 h-16 rounded-full bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-gray-800">
+                            <i class="fas fa-gem text-2xl" style="background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Identidad Gráfica</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Construimos marcas memorables. Diseño de logotipos, manuales de marca y elementos visuales que proyectan profesionalismo, lujo y confianza.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="gradient-border-wrap fade-in-up" style="transition-delay: 0.4s;">
+                    <div class="gradient-border-content h-full p-8 flex flex-col items-center text-center group hover:bg-[#1a1a1a] transition-colors duration-300">
+                        <div class="w-16 h-16 rounded-full bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-gray-800">
+                            <i class="fas fa-user-check text-2xl" style="background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Optimización de Perfiles</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Auditoría y estructuración estratégica de tus redes sociales para maximizar el alcance orgánico, mejorar la percepción y facilitar la conversión.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="gradient-border-wrap fade-in-up" style="transition-delay: 0.5s;">
+                    <div class="gradient-border-content h-full p-8 flex flex-col items-center text-center group hover:bg-[#1a1a1a] transition-colors duration-300">
+                        <div class="w-16 h-16 rounded-full bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-gray-800">
+                            <i class="fas fa-laptop-code text-2xl" style="background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Desarrollo Web</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Páginas web a medida, rápidas y estéticamente impecables. Tu oficina virtual diseñada para captar la atención y guiar al usuario hacia la acción.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="gradient-border-wrap fade-in-up" style="transition-delay: 0.6s;">
+                    <div class="gradient-border-content h-full p-8 flex flex-col items-center text-center group hover:bg-[#1a1a1a] transition-colors duration-300">
+                        <div class="w-16 h-16 rounded-full bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-gray-800">
+                            <i class="fas fa-filter text-2xl" style="background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Embudos de Ventas & CRM</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Sistemas automatizados de captación y nutrición de leads. Implementación de CRM para escalar tus ventas de manera predecible y organizada.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats / Value Section -->
+    <section class="py-20 border-y border-gray-800 bg-[#0a0a0a] relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="fade-in-up">
+                    <div class="text-4xl md:text-5xl font-bold text-gold mb-2">100+</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-wider">Proyectos Exitosos</div>
+                </div>
+                <div class="fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="text-4xl md:text-5xl font-bold text-gold mb-2">ROI</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-wider">Maximizado</div>
+                </div>
+                <div class="fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="text-4xl md:text-5xl font-bold text-gold mb-2">24/7</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-wider">Soporte Dedicado</div>
+                </div>
+                <div class="fade-in-up" style="transition-delay: 0.3s;">
+                    <div class="text-4xl md:text-5xl font-bold text-gold mb-2">Premium</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-wider">Calidad Garantizada</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-24 bg-[#111111] relative overflow-hidden">
+        <!-- Glow effect -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#d4af37]/5 to-transparent pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 fade-in-up">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Eleva tu <span class="text-gold">Negocio</span> Hoy</h2>
+                <p class="text-gray-400">Déjanos tus datos y un especialista de Altora se comunicará contigo para diseñar tu estrategia a medida.</p>
+            </div>
+
+            <div class="gradient-border-wrap fade-in-up p-[1px]">
+                <form class="gradient-border-content p-8 md:p-10 space-y-6" onsubmit="event.preventDefault(); showMessage();">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Nombre Completo</label>
+                            <input type="text" id="name" class="w-full bg-[#0a0a0a] border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-[#d4af37] transition-colors" placeholder="Ej. Juan Pérez" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Correo Electrónico</label>
+                            <input type="email" id="email" class="w-full bg-[#0a0a0a] border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-[#d4af37] transition-colors" placeholder="tu@empresa.com" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="service" class="block text-sm font-medium text-gray-400 mb-2">Servicio de Interés</label>
+                        <select id="service" class="w-full bg-[#0a0a0a] border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-[#d4af37] transition-colors appearance-none">
+                            <option value="">Selecciona una opción</option>
+                            <option value="contenido">Creación de Contenido</option>
+                            <option value="video">Edición de Videos</option>
+                            <option value="identidad">Identidad Gráfica</option>
+                            <option value="perfiles">Optimización de Perfiles</option>
+                            <option value="web">Páginas Web</option>
+                            <option value="embudos">Embudos & CRM</option>
+                            <option value="integral">Asesoría Integral</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-400 mb-2">Cuéntanos sobre tu proyecto</label>
+                        <textarea id="message" rows="4" class="w-full bg-[#0a0a0a] border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-[#d4af37] transition-colors resize-none" placeholder="Describe brevemente tus objetivos..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full btn-gold py-4 rounded-md text-lg uppercase tracking-wider">
+                        Solicitar Presupuesto
+                    </button>
+                    <!-- Success Message Placeholder -->
+                    <div id="form-message" class="hidden text-center text-green-400 mt-4 font-medium">
+                        ¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#050505] pt-16 pb-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="flex items-center gap-3 mb-6 md:mb-0">
+                    <svg class="h-8 w-auto logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 10 L20 80 H35 L45 55 L55 55 L65 80 H80 L50 10Z" fill="url(#goldGradient)"/>
+                        <path d="M40 80 H25 L45 30 L45 80 Z" fill="#050505"/>
+                        <path d="M45 75 H35 V65 H45 V75 Z" fill="url(#goldGradient)"/>
+                        <path d="M45 60 H40 V50 H45 V60 Z" fill="url(#goldGradient)"/>
+                        <path d="M50 50 L85 20 L75 15 L80 30 Z" fill="url(#goldGradient)"/>
+                        <path d="M48 52 L82 22 L80 25 L48 54 Z" fill="#050505"/>
+                    </svg>
+                    <span class="text-xl font-bold tracking-widest text-gold uppercase">Altora</span>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-[#d4af37] transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-[#d4af37] transition-colors"><i class="fab fa-linkedin-in text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-[#d4af37] transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2026 Altora Digital Marketing. Todos los derechos reservados.</p>
+                <div class="mt-4 md:mt-0 space-x-4">
+                    <a href="#" class="hover:text-gray-300">Términos de Servicio</a>
+                    <a href="#" class="hover:text-gray-300">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar Background Change on Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg', 'border-b', 'border-gray-800');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.classList.add('bg-[#0a0a0a]/90');
+            }
+        });
+
+        // Scroll Animation (Fade in up)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Run once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach((element) => {
+            observer.observe(element);
+        });
+
+        // Form Submit Simulation
+        function showMessage() {
+            const msg = document.getElementById('form-message');
+            msg.classList.remove('hidden');
+            setTimeout(() => {
+                msg.classList.add('hidden');
+                document.querySelector('form').reset();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
